@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for ext in exts %}
+        <a href="/msw/attachments-list/{{ ext.ext }}/">{{ ext.ext }} ({{ ext.cnt }})</a><br/>
+    {% endfor %}
+{% endblock %}

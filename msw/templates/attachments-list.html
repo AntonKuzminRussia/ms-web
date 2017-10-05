@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div ng-controller="AttachmentsListCtrl" ng-init="loadFilesList('{{ ext }}')">
+{% verbatim %}
+
+        <div ng-repeat="attachment in attachments">
+            <a href="/msw/download/{{attachment.id}}/">{{attachment.file_name}}</a> ({{attachment.mime_type}})
+        </div>
+    </div>
+{% endverbatim %}
+{% endblock %}

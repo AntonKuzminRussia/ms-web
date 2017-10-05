@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+<head>
+    <style>
+html, body, .container {
+    height: 100%;
+}
+    </style>
+    <title></title>
+    <script src="{% static 'node_modules/angular/angular.js' %}" type="text/javascript"></script>
+    <script src="{% static 'node_modules/angular-nl2br-filter/index.js' %}" type="text/javascript"></script>
+    <script src="{% static 'node_modules/angular-sanitize/angular-sanitize.js' %}" type="text/javascript"></script>
+    <script src="{% static "angular.controllers.js" %}"></script>
+</head>
+<body ng-app="myApp">
+    {% load djng_tags %}
+    <center>
+        <table border="1">
+            <tr>
+                <th><a href="/msw/index/">Index</a></th>
+                <th><a href="/msw/mailbox">Mailbox</a></th>
+                <th><a href="/msw/accounts/">Accounts</a></th>
+                <th><a href="/msw/filters-finds">Filters &amp; finds</a></th>
+                <th><a href="/msw/attachments/">Attachments</a></th>
+            </tr>
+        </table>
+    </center>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

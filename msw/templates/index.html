@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <table  ng-controller="StatsCtrl" border="1">
+        <tr>
+            <th>Account</th>
+            <th>Letters</th>
+            <th>Today</th>
+            <th>Finds</th>
+            <th>Today</th>
+            <th>Attachments</th>
+            <th>Today</th>
+            <th>Errors</th>
+            <th>Today</th>
+        </tr>
+        {% verbatim %}
+            <tr  ng-repeat="account in accounts">
+                <td><a href="/msw/accounts/">{{account.host}} / {{account.login}}</a></td>
+                <td><a href="/msw/mailbox">{{account.letters_count}}</a></td>
+                <td><a href="/msw/mailbox">{{account.letters_count_today}}</a></td>
+                <td><a href="/msw/filters-finds/">{{account.filters_finds_count}}</a></td>
+                <td><a href="/msw/filters-finds/">{{account.filters_finds_count_today}}</a></td>
+                <td><a href="/msw/attachments/">{{account.attachments_count}}</a></td>
+                <td><a href="/msw/attachments/">{{account.attachments_count_today}}</a></td>
+                <td><a href="/msw/accounts-errors/{{account.id}}/">{{account.errors_count}}</a></td>
+                <td><a href="/msw/accounts-errors/{{account.id}}/">{{account.errors_count_today}}</a></td>
+            </tr>
+        {% endverbatim %}
+    </table>
+{% endblock %}

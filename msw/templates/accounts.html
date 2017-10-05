@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% verbatim %}
+        <a href="/msw/add-account/">Add new</a>&nbsp;
+        <div ng-controller="AccountsCtrl">
+            <div ng-repeat="account in accounts">
+                <div>
+                    <a href="/msw/del-account/{{account.id}}/" onclick="return confirm('Are you sure?')">Del</a>&nbsp;&nbsp;
+                    <a href="/msw/edit-account/{{account.id}}/">Edit</a>&nbsp;
+                    <a href="/msw/accounts-errors/{{account.id}}/">Errors</a>
+                        <b>{{account.host}} / {{account.login}}</b>
+                </div>
+            </div>
+        </div>
+    {% endverbatim %}
+{% endblock %}

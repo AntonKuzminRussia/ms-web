@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+        <div ng-controller="AccountsErrorsCtrl" ng-init="loadErrorsList({{ account_id }})">
+            {% verbatim %}
+            <table ng-repeat="error in errors" border="1" style="width: 100%;">
+                <tr>
+                    <td style="width: 150px;">
+                        <any ng-switch="!!error.is_today">
+                            <span ng-switch-when="false">{{error.when_add}}</span>
+                            <b ng-switch-when="true">{{error.when_add}}</b>
+                        </any>
+                    </td>
+                    <td>
+                        <any ng-switch="!!error.is_today">
+                            <span ng-switch-when="false">{{error.error}}</span>
+                            <b ng-switch-when="true">{{error.error}}</b>
+                        </any>
+                    </td>
+                </tr>
+            </table>
+            {% endverbatim %}
+        </div>
+
+{% endblock %}
